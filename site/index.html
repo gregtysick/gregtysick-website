@@ -3,351 +3,105 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Greg Tysick | Accounting &amp; Financial Operations</title>
-  <meta name="description" content="Official site for Greg Tysick. Verified links to my professional website and public profiles." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://gregtysick.com/" />
-
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <!--<link rel="apple-touch-icon" href="/apple-touch-icon.png">-->
-
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Greg Tysick | Accounting &amp; Financial Operations" />
-  <meta property="og:description" content="Official site for Greg Tysick. Verified links to my professional website and public profiles." />
-  <meta property="og:url" content="https://gregtysick.com/" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Greg Tysick | Accounting &amp; Financial Operations" />
-  <meta name="twitter:description" content="Official site for Greg Tysick. Verified links to my professional website and public profiles." />
-
-  <!-- One clean font (optional but polished) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg0:#f7f8fb;
-      --bg1:#eef2ff;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:rgba(15,23,42,.10);
-      --shadow:0 10px 30px rgba(15,23,42,.08);
-      --shadow2:0 6px 18px rgba(15,23,42,.08);
-      --accent:#1e3a8a; /* deep professional blue */
-      --accent2:#0ea5e9; /* subtle modern highlight */
-      --radius:18px;
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 10% 0%, rgba(14,165,233,.12), transparent 60%),
-        radial-gradient(1200px 700px at 90% 10%, rgba(30,58,138,.12), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg0) 45%, #ffffff 120%);
-      line-height:1.45;
-    }
-
-    .wrap{
-      min-height:100%;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:48px 18px 40px;
-    }
-
-    .container{
-      width:100%;
-      max-width:720px;
-    }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    header{
-      padding:28px 26px 18px;
-      border-bottom:1px solid var(--border);
-      background:
-        linear-gradient(180deg, rgba(30,58,138,.06), transparent 75%);
-    }
-
-    .top{
-      display:flex;
-      gap:16px;
-      align-items:center;
-    }
-
-    .avatar{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      background:
-        radial-gradient(18px 18px at 25% 25%, rgba(14,165,233,.35), transparent 60%),
-        radial-gradient(26px 26px at 75% 75%, rgba(30,58,138,.30), transparent 65%),
-        linear-gradient(135deg, rgba(15,23,42,.10), rgba(15,23,42,.02));
-      border:1px solid var(--border);
-      flex:0 0 auto;
-    }
-
-    h1{
-      font-size:28px;
-      letter-spacing:-0.02em;
-      margin:0;
-      line-height:1.2;
-    }
-
-    .sub{
-      margin-top:4px;
-      font-weight:600;
-      color:var(--accent);
-      font-size:14px;
-      letter-spacing:0.01em;
-    }
-
-    .intro{
-      margin:14px 0 0;
-      color:var(--muted);
-      font-size:15px;
-    }
-
-    main{ padding:22px 26px 10px; }
-
-    .section-title{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin:0 0 12px;
-      color:#0b1224;
-      font-size:13px;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      font-weight:700;
-    }
-
-    .links{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-
-    .link-card{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 16px;
-      border-radius:16px;
-      border:1px solid rgba(15,23,42,.10);
-      background:linear-gradient(180deg, #ffffff, rgba(255,255,255,.92));
-      box-shadow:var(--shadow2);
-      text-decoration:none;
-      color:var(--text);
-      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-    }
-
-    .link-left{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width:0;
-    }
-
-    .link-title{
-      font-weight:700;
-      font-size:15px;
-      letter-spacing:-0.01em;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .link-meta{
-      font-size:12px;
-      color:var(--muted);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .chev{
-      font-size:16px;
-      color:rgba(15,23,42,.55);
-      margin-left:10px;
-      flex:0 0 auto;
-    }
-
-    .link-card:hover{
-      transform: translateY(-1px);
-      border-color: rgba(30,58,138,.28);
-      box-shadow: 0 12px 34px rgba(15,23,42,.10);
-    }
-
-    .link-card:focus-visible{
-      outline:3px solid rgba(14,165,233,.45);
-      outline-offset:3px;
-    }
-
-    .glance{
-      margin-top:18px;
-      padding:16px 16px 14px;
-      border:1px solid rgba(15,23,42,.08);
-      border-radius:16px;
-      background:rgba(255,255,255,.72);
-    }
-
-    .glance h2{
-      margin:0 0 10px;
-      font-size:13px;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      font-weight:800;
-    }
-
-    .glance ul{
-      margin:0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    footer{
-      padding:16px 26px 22px;
-      color:rgba(71,85,105,.9);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .fine{
-      opacity:.9;
-    }
-
-    .smalllink{
-      color:rgba(30,58,138,.85);
-      text-decoration:none;
-    }
-    .smalllink:hover{ text-decoration:underline; }
-
-    @media (max-width:520px){
-      .wrap{ padding-top:34px; }
-      header{ padding:22px 18px 16px; }
-      main{ padding:18px 18px 8px; }
-      footer{ padding:14px 18px 18px; }
-      h1{ font-size:24px; }
-    }
-  </style>
+  <meta name="theme-color" content="#f3eddf" />
+  <title>Greg Tysick | From Ledgers to Agents</title>
+  <meta name="description" content="Greg Tysick's career journey from accounting and operations through systems, automation, and practical AI." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="./styles/site.css" />
 </head>
-
 <body>
-  <div class="wrap">
-    <div class="container">
-      <div class="card">
-        <header>
-          <div class="top">
-            <img class="avatar" src="/favicon.png" alt="Greg Tysick logo">
-            <div>
-              <h1>Greg Tysick</h1>
-              <div class="sub">Accounting &amp; Financial Operations Professional</div>
-            </div>
-          </div>
+  <a class="skip-link" href="#story">Skip to story</a>
 
-          <p class="intro">
-            I’m an accounting and financial operations professional with a strong analytical and technical mindset. My work sits at the intersection of accounting discipline, data analysis, and systems thinking—focused on producing accurate financial records, reliable reporting, and decision-ready information.
-          </p>
-        </header>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Greg Tysick home">
+      <span class="brand-mark" aria-hidden="true">GT</span>
+      <span>Greg Tysick</span>
+    </a>
+    <nav class="quick-links" aria-label="Primary">
+      <a href="https://www.linkedin.com/in/gregtysick/">LinkedIn</a>
+      <a href="https://github.com/gregtysick">GitHub</a>
+      <a href="mailto:hello@tysick.com">Contact</a>
+    </nav>
+  </header>
 
-        <main>
-          <div class="section-title">Official Links</div>
-
-          <ul class="links">
-            <li>
-              <a class="link-card" href="https://greg.tysick.com" target="_blank" rel="noopener">
-                <span class="link-left">
-                  <span class="link-title">Website</span>
-                  <span class="link-meta">greg.tysick.com</span>
-                </span>
-                <span class="chev" aria-hidden="true">›</span>
-              </a>
-            </li>
-
-            <li>
-              <a class="link-card" href="https://www.linkedin.com/in/gregtysick/" target="_blank" rel="noopener">
-                <span class="link-left">
-                  <span class="link-title">LinkedIn</span>
-                  <span class="link-meta">linkedin.com/in/gregtysick</span>
-                </span>
-                <span class="chev" aria-hidden="true">›</span>
-              </a>
-            </li>
-
-            <li>
-              <a class="link-card" href="https://github.com/gregtysick" target="_blank" rel="noopener">
-                <span class="link-left">
-                  <span class="link-title">GitHub</span>
-                  <span class="link-meta">github.com/gregtysick</span>
-                </span>
-                <span class="chev" aria-hidden="true">›</span>
-              </a>
-            </li>
-
-            <li>
-              <a class="link-card" href="https://www.youtube.com/@Greg.Tysick" target="_blank" rel="noopener">
-                <span class="link-left">
-                  <span class="link-title">YouTube</span>
-                  <span class="link-meta">youtube.com/@Greg.Tysick</span>
-                </span>
-                <span class="chev" aria-hidden="true">›</span>
-              </a>
-            </li>
-
-            <li>
-              <a class="link-card" href="mailto:hello@tysick.com">
-                <span class="link-left">
-                  <span class="link-title">Email</span>
-                  <!--<span class="link-meta">hello@tysick.com</span>-->
-                </span>
-                <span class="chev" aria-hidden="true">›</span>
-              </a>
-            </li>
-          </ul>
-
-          <section class="glance" aria-label="At a glance">
-            <h2>At a glance</h2>
-            <ul>
-              <li>Accounting and financial operations with an analytical, systems-oriented approach </li>
-              <li>Financial reporting, data integrity, and decision support across complex environments</li>
-              <li>Applied data analysis, automation, and modern tools to improve clarity and reliability</li>
-            </ul>
-          </section>
-        </main>
-
-        <footer>
-          <span class="fine">© Greg Tysick</span>
-          <span class="fine">
-            Primary profile:
-            <a class="smalllink" href="https://greg.tysick.com" target="_blank" rel="noopener">greg.tysick.com</a>
-          </span>
-        </footer>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Operator · Builder · Systems Thinker</p>
+        <h1 id="hero-title">From ledgers<br />to agents.</h1>
+        <p class="hero-deck">Nearly three decades of turning messy work into systems people can actually use.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#story">Follow the journey</a>
+          <a class="button secondary" href="#resume">Resume view</a>
+        </div>
       </div>
-    </div>
-  </div>
+
+      <div class="hero-map" aria-hidden="true">
+        <svg viewBox="0 0 900 520" role="img">
+          <path class="route route-ghost" d="M70 380 C170 310, 210 120, 330 160 S470 420, 590 330 S690 100, 830 150" />
+          <path class="route route-live" d="M70 380 C170 310, 210 120, 330 160 S470 420, 590 330 S690 100, 830 150" />
+          <g class="map-node" transform="translate(72 380)"><circle r="10"/><text x="18" y="5">Ledger</text></g>
+          <g class="map-node" transform="translate(330 160)"><circle r="10"/><text x="18" y="5">Network</text></g>
+          <g class="map-node" transform="translate(590 330)"><circle r="10"/><text x="18" y="5">Models</text></g>
+          <g class="map-node" transform="translate(830 150)"><circle r="10"/><text x="-92" y="-18">Agents</text></g>
+        </svg>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span></span>Scroll to travel</div>
+    </section>
+
+    <section id="story" class="story-shell" aria-label="Career journey">
+      <aside class="story-rail" aria-label="Journey progress">
+        <div class="rail-line"><span id="rail-progress"></span></div>
+        <ol id="chapter-nav"></ol>
+      </aside>
+
+      <div id="chapters" class="chapters"></div>
+    </section>
+
+    <section id="resume" class="resume-view" aria-labelledby="resume-title">
+      <div class="resume-intro">
+        <p class="eyebrow">Prefer the conventional version?</p>
+        <h2 id="resume-title">The same story, without the scenery.</h2>
+        <p>The interactive journey is the human layer. Recruiters and collaborators can still get to the practical details immediately.</p>
+      </div>
+      <div class="resume-grid">
+        <a class="resume-card" href="https://www.linkedin.com/in/gregtysick/">
+          <span class="card-kicker">Profile</span>
+          <strong>LinkedIn</strong>
+          <span>Experience, roles, and current positioning</span>
+        </a>
+        <a class="resume-card" href="https://github.com/gregtysick">
+          <span class="card-kicker">Build</span>
+          <strong>GitHub</strong>
+          <span>Code, systems, and experiments</span>
+        </a>
+        <a class="resume-card" href="mailto:hello@tysick.com">
+          <span class="card-kicker">Talk</span>
+          <strong>Contact Greg</strong>
+          <span>Accounting, operations, systems, and AI</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">Still building</p>
+      <h2 id="closing-title">The tools changed.<br />The work stayed the same.</h2>
+      <p>Turn complexity into something people can actually use.</p>
+      <a class="button primary" href="mailto:hello@tysick.com">Start a conversation</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© Greg Tysick</span>
+    <span>Prototype · not production</span>
+  </footer>
+
+  <noscript>
+    <section class="noscript-note">This prototype uses JavaScript for the interactive journey. The complete career story remains available in the page content.</section>
+  </noscript>
+
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
