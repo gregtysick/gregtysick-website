@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/beaufgfv/gregtysick.com/
+    - export DEPLOYPATH=/home/beaufgfv/staging.gregtysick.com/
+    - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R site/* $DEPLOYPATH
-
