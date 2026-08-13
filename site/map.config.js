@@ -49,6 +49,7 @@ export const MAP = {
       aphorism: { lines: ['"Reliable decisions begin', ' with reliable information."'], ink: '#66713f',
                   x: 27.5, y: 6.9, h: 1.35, tilt: .025, font: '600 62px "Caveat"' },
       art: [ { file: 'terrain-t1.png', x: 22.5, y: 2.7, h: 6.4, wallPin: true, sway: 0 } ],
+      detailLink: { href: '/experience/#ledger', label: 'Read the accounting story' },
     },
 
     {
@@ -65,6 +66,7 @@ export const MAP = {
       aphorism: { lines: ['"The workflow around the work', ' mattered just as much."'], ink: '#4c6378',
                   x: 43.6, y: 6.7, h: 1.35, tilt: -.02, font: '600 56px "Caveat"' },
       art: [ { file: 'prop-edinburgh-skyline.png', x: 39, y: 2.5, h: 5.6, wallPin: true, sway: 0 } ],
+      detailLink: { href: '/experience/#practice', label: 'See the experience' },
     },
 
     {
@@ -84,6 +86,7 @@ export const MAP = {
         { file: 'prop-inkpot.png',   x: 49.5, h: 1.2, zBack: 1.3, sway: .01 },
         { file: 'prop-magnifier.png', x: 58.6, h: 1.1, zBack: 1.2, sway: .012 },
       ],
+      detailLink: { href: '/experience/#network', label: 'View career details' },
     },
 
     {
@@ -101,6 +104,7 @@ export const MAP = {
                           ' business operated."'], ink: '#96543f',
                   x: 73.5, y: 6.8, h: 1.4, tilt: -.025, font: '600 60px "Caveat"' },
       props: [ { file: 'prop-tea.png', x: 70.8, h: .85, zBack: 1.3, sway: .01 } ],
+      detailLink: { href: '/experience/#builder', label: 'See what I built' },
     },
 
     {
@@ -120,6 +124,7 @@ export const MAP = {
         { file: 'prop-folder-mountains.png', x: 88.5, h: 4.2, zBack: 1.5, sway: .006 },
         { file: 'concept-a-chart.png', x: 81.6, y: 4.6, h: 3.4, wallPin: true, framed: true, sway: .006 },
       ],
+      detailLink: { href: '/projects/', label: 'Explore projects' },
     },
 
     {
@@ -141,6 +146,7 @@ export const MAP = {
         { lines: ['the map is never finished —', 'and neither is the work. keep scrolling →'], ink: '#8a765a',
           x: 108.6, y: 2.6, h: 1.15, tilt: -.015, font: '500 52px "Caveat"' },
       ],
+      detailLink: { href: '/projects/', label: 'See what I am building now' },
     },
   ],
 };

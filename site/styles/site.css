@@ -392,3 +392,97 @@ blockquote {
   .route-live { stroke-dashoffset: 0; }
   .chapter-art::before { transform: none; }
 }
+
+/* ── Conventional page styles (projects, writing, about) ── */
+.page-main {
+  padding-top: 5rem;
+}
+.page-hero {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 6rem 0 3rem;
+}
+.page-hero h1 {
+  margin: .5rem 0;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: .9;
+}
+.page-deck {
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  margin-top: 1rem;
+}
+.page-content {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+.page-prose {
+  max-width: 44rem;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.page-prose h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: .95;
+}
+.page-prose p { margin: 0 0 1.2rem; color: var(--charcoal); }
+.page-prose ul { margin: 0 0 1.5rem; padding-left: 1.5rem; }
+.page-prose li { margin-bottom: .6rem; }
+.page-prose a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.2rem;
+}
+.project-card {
+  padding: 1.6rem;
+  border: 1px solid var(--rule);
+  background: rgba(255,255,255,.22);
+  border-radius: 4px;
+  transition: transform .18s ease, background .18s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,.45);
+}
+.project-card h2 {
+  margin: 0 0 .4rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1;
+}
+.card-era {
+  color: var(--orange);
+  font: 700 .68rem/1 Inter, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin: 0 0 .8rem;
+}
+.project-card p:not(.placeholder-note) {
+  color: var(--charcoal);
+  font-size: .95rem;
+  line-height: 1.5;
+  margin: 0 0 .5rem;
+}
+.project-card a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .9rem;
+}
+.project-card a:hover { color: var(--orange); }
+
+@media (max-width: 900px) {
+  .quick-links a:nth-child(2) { display: none; }
+  .page-hero { padding: 5rem 0 2rem; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .quick-links a:nth-child(4) { display: none; }
+}
+@media (max-width: 560px) {
+  .quick-links a:nth-child(3) { display: none; }
+}

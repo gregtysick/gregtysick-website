@@ -56,6 +56,20 @@
   #fallback { display: none; position: fixed; inset: 0; z-index: 60; background: #f0e8d6;
     align-items: center; justify-content: center; text-align: center; padding: 40px; font-size: 20px; color: #4a3a28; }
 
+  /* ── Chapter detail link overlays ── */
+  .chapter-link {
+    position: fixed; z-index: 35; display: none;
+    font-family: 'Caveat', cursive; font-size: 1.1rem; font-weight: 500; color: #b0503c;
+    text-decoration: none; padding: .2rem .6rem;
+    background: rgba(253,246,230,.8); border: 1px solid rgba(176,80,60,.3);
+    border-radius: 6px; pointer-events: auto; cursor: pointer; white-space: nowrap;
+    transition: color .2s ease, background .2s ease;
+  }
+  .chapter-link:hover, .chapter-link:focus {
+    color: #8a4d2c; background: rgba(253,246,230,.95);
+    outline: 2px solid #b0503c; outline-offset: 2px;
+  }
+
   /* ── Persistent navigation overlay ── */
   .journey-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 40;
@@ -111,16 +125,18 @@
 </head>
 <body>
 
-<!-- Persistent navigation overlay (Phase 5) -->
+<!-- Persistent navigation overlay -->
 <nav class="journey-nav" aria-label="Primary">
   <a class="nav-brand" href="/" aria-label="Greg Tysick home">Greg Tysick</a>
   <div class="nav-links" role="menubar">
     <a href="/" role="menuitem">Journey</a>
-    <a href="/details/" role="menuitem">Details</a>
-    <a href="/details/#work" role="menuitem">Work</a>
-    <a href="/details/#writing" role="menuitem">Writing</a>
-    <a href="/details/#resume" role="menuitem">Resume</a>
-    <a href="/details/#contact" role="menuitem">Contact</a>
+    <a href="/experience/" role="menuitem">Experience</a>
+    <a href="/projects/" role="menuitem">Projects</a>
+    <a href="/writing/" role="menuitem">Writing</a>
+    <a href="/about/" role="menuitem">About</a>
+    <a href="https://www.linkedin.com/in/gregtysick/" role="menuitem" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/gregtysick" role="menuitem" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:hello@tysick.com" role="menuitem">Contact</a>
   </div>
 </nav>
 
@@ -129,7 +145,7 @@
 <div id="badge"><div class="k">FIELD MAP</div><div class="n">G. Tysick</div></div>
 <div id="odo">◈ <b id="km">0</b> km charted</div>
 <div id="hint">scroll, swipe, or drag to travel east <span class="ar">⟶</span><br><small>the route loops forever</small></div>
-<div id="fallback"><p>This map needs WebGL.<br>The flat version lives <a href="/details/">here</a>.</p></div>
+<div id="fallback"><p>This map needs WebGL.<br>The flat version lives <a href="/experience/">here</a>.</p></div>
 
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
@@ -151,6 +167,9 @@ import { MAP } from './map.config.js';
 
 document.title = MAP.title;
 { const b = document.querySelector('#badge .n'); if (b) b.textContent = MAP.badge; }
+
+/* chapter detail link overlays — HTML anchors that track world positions */
+const chapterLinks = [];
 
 const canvas = document.getElementById('world');
 let renderer;
@@ -455,10 +474,22 @@ function buildChapter(ch, i, ox = 0) {
   for (const n of ch.extraNotes   ?? []) noteSpec(n, i, cx, ox);
   if (ch.aphorism) writeSpec(ch.aphorism, i, cx, ox);
   for (const w of ch.extraWriting ?? []) writeSpec(w, i, cx, ox);
-  // Phase 6: chapter detail link — renders a small "Read more" note on the map
+  // Phase 6: chapter detail link — renders a small clickable "Read more" overlay
   if (ch.detailLink) {
     place(writingTexture({ lines: ['\u2192 ' + (ch.detailLink.label || 'Read more')], font: '500 42px "Caveat"', ink: '#b0503c' }),
       { x: (cx + 6) + ox, y: 4.2, h: .5, z: .07, tilt: .03 });
+    // Also create a clickable HTML overlay (one per real chapter, not the seam copy)
+    if (ox === 0) {
+      const a = document.createElement('a');
+      a.href = ch.detailLink.href || '/experience/';
+      a.className = 'chapter-link';
+      a.textContent = '\u2192 ' + (ch.detailLink.label || 'Read more');
+      a.setAttribute('aria-label', ch.detailLink.label || 'Read more about ' + (ch.id));
+      a.dataset.worldX = cx + 6;
+      a.dataset.worldY = 4.2;
+      document.body.appendChild(a);
+      chapterLinks.push(a);
+    }
   }
 }
 
@@ -709,6 +740,28 @@ renderer.setAnimationLoop(now => {
   // odometer HUD
   const km = Math.round(cp * (MAP.odometerKm ?? 5600) / 10) * 10;
   if (km !== lastKm) { lastKm = km; kmEl.textContent = km.toLocaleString('en-US'); }
+
+  // position chapter detail link overlays — project world coords to screen
+  for (const a of chapterLinks) {
+    const wx = parseFloat(a.dataset.worldX), wy = parseFloat(a.dataset.worldY);
+    const wrappedX = ((wx % SPAN) + SPAN) % SPAN;
+    const camX = camera.position.x;
+    // show only when within camera view range
+    const dist = wrappedX - camX;
+    const visible = Math.abs(dist) < 20;
+    if (visible) {
+      const v = new THREE.Vector3(wrappedX, wy, 0.07);
+      v.project(camera);
+      const sx = (v.x * 0.5 + 0.5) * innerWidth;
+      const sy = (-v.y * 0.5 + 0.5) * innerHeight;
+      a.style.left = sx + 'px';
+      a.style.top = sy + 'px';
+      a.style.transform = 'translate(-50%, -50%)';
+      a.style.display = 'block';
+    } else {
+      a.style.display = 'none';
+    }
+  }
 
   for (const a of animated) a.fn(t);
   renderer.render(scene, camera);
