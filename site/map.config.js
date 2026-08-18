@@ -1,33 +1,36 @@
 export const MAP = {
-  title: 'The Field Map of Greg Tysick',
+  title: 'Greg Tysick — From Ledgers to Agents',
   badge: 'G. Tysick',
   odometerKm: 4200,
 
   opening: {
-    headline: ['The Field Map of', 'Greg Tysick'],
-    tagline:  'a life, charted',
-    arc:      'Accounting and operations  →  systems builder  →  AI operator',
-    hero:     { image: 'fox-hero.png', caption: 'fig. 0 — the cartographer' },
+    headline: ['From Ledgers', 'to Agents'],
+    tagline:  'Greg Tysick · a practical systems journey',
+    arc:      'Accounting and operations  →  systems builder  →  practical AI',
+    hero:     { image: 'opening-field-map.svg', caption: 'fig. 0 — the route' },
     place: {
       headline: { x: 5.2, y: 5.0, h: 2.6, tilt: -.02, font: '700 96px "Caveat"', ink: '#3b2f21' },
-      tagline:  { x: 5.2, y: 6.6, h: .8,  z: .06,     font: '500 58px "Caveat"', ink: '#8a765a' },
+      tagline:  { x: 5.2, y: 6.6, h: .8, z: .06, font: '500 58px "Caveat"', ink: '#8a765a' },
       arc:      { x: 5.4, y: 3.4, h: .72, z: .06, tilt: .015, w: 1400, font: '500 52px "Caveat"', ink: '#6d5c43' },
-      hero:     { x: 11.3, y: 4.7, h: 3.1, sway: .008 },
+      hero:     { x: 11.3, y: 4.7, h: 3.1, sway: .004 },
       caption:  { x: 11.3, y: 2.85, h: .5, z: .05, font: '500 44px "Caveat"', ink: '#8a765a' },
     },
     props: [
-      { file: 'prop-compass.png', x: 3.4,  h: 1.2, zBack: 1.6, sway: .01 },
-      { file: 'prop-twine.png',   x: 13.6, h: .85, zBack: 1.2, sway: .012 },
+      { file: 'prop-compass.png', x: 3.4, h: 1.0, zBack: 1.6, sway: .008 },
     ],
   },
 
+  // Temporary traveler wiring. The approved Practical Engineer Beaver assets are
+  // the next binary intake; keep this block functional until those files are in site/assets.
   mascot: {
-    scale: 1.15,
-    sit:   { file: 'fox.png',        h: 1.3,  yOff: 0, perch: [-.19, 0] },
-    walkA: { file: 'fox-walk-a.png', h: 0.72 },
-    walkB: { file: 'fox-walk-b.png', h: 0.72 },
+    scale: 1.10,
+    sit:   { file: 'fox.png',        h: 1.24, yOff: 0, perch: [-.19, 0] },
+    walkA: { file: 'fox-walk-a.png', h: 0.70 },
+    walkB: { file: 'fox-walk-b.png', h: 0.70 },
   },
 
+  // Source-demo vehicles are retained only as dormant assets for now. The Greg V1
+  // journey travels on foot so the evolving Beaver remains the continuity device.
   vehicles: {
     tank:  { file: 'tank.png',  h: 2.0,  yOff: -.53, perch: [.68,  -.12] },
     plane: { file: 'plane.png', h: 2.35, yOff: .1,   perch: [1.12,  .08], flies: true },
@@ -37,8 +40,7 @@ export const MAP = {
   chapters: [
     {
       id: 'ledger',
-      wp: 'WP·00',  wpX: 15.2,
-      ride: 'tank',
+      wp: 'WP·00', wpX: 15.2,
       note: {
         title: '00 · the ledger — 1990s–2008',
         lines: ['Accounting, controls, reporting,', 'payroll, budgeting, and operational',
@@ -48,14 +50,13 @@ export const MAP = {
       },
       aphorism: { lines: ['"Reliable decisions begin', ' with reliable information."'], ink: '#66713f',
                   x: 27.5, y: 6.9, h: 1.35, tilt: .025, font: '600 62px "Caveat"' },
-      art: [ { file: 'terrain-t1.png', x: 22.5, y: 2.7, h: 6.4, wallPin: true, sway: 0 } ],
+      art: [ { file: 'terrain-ledger-north.svg', x: 22.5, y: 2.75, h: 6.1, wallPin: true, sway: 0 } ],
       detailLink: { href: '/experience/#ledger', label: 'Read the accounting story' },
     },
 
     {
       id: 'practice',
-      wp: 'WP·01',  wpX: 31.2,
-      // on foot — the practitioner walks the route
+      wp: 'WP·01', wpX: 31.2,
       note: {
         title: '01 · the practice — 2009–2012',
         lines: ['Working across many small businesses', 'exposed the same recurring friction:',
@@ -65,14 +66,13 @@ export const MAP = {
       },
       aphorism: { lines: ['"The workflow around the work', ' mattered just as much."'], ink: '#4c6378',
                   x: 43.6, y: 6.7, h: 1.35, tilt: -.02, font: '600 56px "Caveat"' },
-      art: [ { file: 'prop-edinburgh-skyline.png', x: 39, y: 2.5, h: 5.6, wallPin: true, sway: 0 } ],
+      art: [ { file: 'terrain-practice-files.svg', x: 39.2, y: 2.7, h: 5.8, wallPin: true, sway: 0 } ],
       detailLink: { href: '/experience/#practice', label: 'See the experience' },
     },
 
     {
       id: 'network',
-      wp: 'WP·02',  wpX: 47.2,
-      ride: 'plane',
+      wp: 'WP·02', wpX: 47.2,
       note: {
         title: '02 · the network — 2012–2017',
         lines: ['At High Speed Canada, finance and', 'operations lived inside a growing',
@@ -80,19 +80,15 @@ export const MAP = {
                 'people, and process integration.'],
         x: 51, y: 5.9, h: 2.35, tilt: -.025,
       },
-      aphorism: { lines: ['"Ledger lines turned into', ' network lines."'], ink: '#694f66',
+      aphorism: { lines: ['"Ledger lines turned into', ' network lines."'], ink: '#4f6f88',
                   x: 57.5, y: 6.8, h: 1.35, tilt: .02, font: '600 56px "Caveat"' },
-      props: [
-        { file: 'prop-inkpot.png',   x: 49.5, h: 1.2, zBack: 1.3, sway: .01 },
-        { file: 'prop-magnifier.png', x: 58.6, h: 1.1, zBack: 1.2, sway: .012 },
-      ],
+      art: [ { file: 'terrain-network.svg', x: 55.7, y: 2.65, h: 5.9, wallPin: true, sway: 0 } ],
       detailLink: { href: '/experience/#network', label: 'View career details' },
     },
 
     {
       id: 'builder',
-      wp: 'WP·03',  wpX: 63.2,
-      ride: 'moto',
+      wp: 'WP·03', wpX: 63.2,
       note: {
         title: '03 · the builder — 2017–2023',
         lines: ['VitaCeuticals and Group Vita brought', 'product costing, vendors, reporting,',
@@ -103,14 +99,13 @@ export const MAP = {
       aphorism: { lines: ['"The work was no longer about one', ' department. It was about how the',
                           ' business operated."'], ink: '#96543f',
                   x: 73.5, y: 6.8, h: 1.4, tilt: -.025, font: '600 60px "Caveat"' },
-      props: [ { file: 'prop-tea.png', x: 70.8, h: .85, zBack: 1.3, sway: .01 } ],
+      art: [ { file: 'terrain-builder-workshop.svg', x: 72.1, y: 2.55, h: 6.0, wallPin: true, sway: 0 } ],
       detailLink: { href: '/experience/#builder', label: 'See what I built' },
     },
 
     {
       id: 'models',
-      wp: 'WP·04',  wpX: 79.2,
-      // on foot
+      wp: 'WP·04', wpX: 79.2,
       note: {
         title: '04 · the models — 2022–present',
         lines: ['Trading systems, analytics, Python,', 'dashboards, risk frameworks, and',
@@ -120,16 +115,13 @@ export const MAP = {
       },
       aphorism: { lines: ['"Measure the signal. Define the rule.', ' Observe. Improve."'], ink: '#a9792f',
                   x: 80.5, y: 2.2, h: 1.2, tilt: .02, font: '600 64px "Caveat"' },
-      art: [
-        { file: 'prop-folder-mountains.png', x: 88.5, h: 4.2, zBack: 1.5, sway: .006 },
-        { file: 'concept-a-chart.png', x: 81.6, y: 4.6, h: 3.4, wallPin: true, framed: true, sway: .006 },
-      ],
+      art: [ { file: 'terrain-models-signals.svg', x: 87.8, y: 2.65, h: 6.0, wallPin: true, sway: 0 } ],
       detailLink: { href: '/projects/', label: 'Explore projects' },
     },
 
     {
       id: 'operating-system',
-      wp: 'WP·05',  wpX: 95.4,
+      wp: 'WP·05', wpX: 95.4,
       finale: true,
       note: {
         title: '05 · the operating system — current',
@@ -141,7 +133,7 @@ export const MAP = {
       aphorism: { lines: ['"He didn\'t leave operations to chase AI.', ' He brought operational judgment',
                           ' into deploying AI inside real businesses."'], ink: '#cf7a35',
                   x: 107.3, y: 6.6, h: 1.45, tilt: .02, font: '600 62px "Caveat"' },
-      art: [ { file: 'prop-lighthouse-village.png', x: 102.5, y: 2.45, h: 5.4, wallPin: true, sway: 0 } ],
+      art: [ { file: 'terrain-operating-system.svg', x: 103.0, y: 2.55, h: 6.1, wallPin: true, sway: 0 } ],
       extraWriting: [
         { lines: ['the map is never finished —', 'and neither is the work. keep scrolling →'], ink: '#8a765a',
           x: 108.6, y: 2.6, h: 1.15, tilt: -.015, font: '500 52px "Caveat"' },
