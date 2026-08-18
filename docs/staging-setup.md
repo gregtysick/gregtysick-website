@@ -1,36 +1,39 @@
-# Staging Setup — gregtysick.com Story Site
+# Staging Setup — gregtysick.com Integrated Site
 
 ## Purpose
-Create a safe browser-accessible staging environment for the `story-site-prototype` branch without touching the production `gregtysick.com` document root.
+Maintain a safe browser-accessible staging environment for the integrated `site-integration` branch without touching the production `gregtysick.com` document root.
 
-## Chosen staging hostname
+## Staging hostname
 `staging.gregtysick.com`
 
-Reason: `gregtysick.com` is the recommended canonical full personal site. `greg.tysick.com` can remain the compact profile/link-card identity surface.
+`gregtysick.com` remains the intended canonical full personal site. `greg.tysick.com` can remain the compact profile/link-card identity surface.
 
 ## Required cPanel setup
-1. In Namecheap cPanel, create the domain/subdomain `staging.gregtysick.com`.
+1. In Namecheap cPanel, confirm the domain/subdomain `staging.gregtysick.com` exists.
 2. Do **not** share the production document root.
 3. Set the document root exactly to:
    `/home/beaufgfv/staging.gregtysick.com`
 4. Confirm DNS/AutoSSL resolves HTTPS for `staging.gregtysick.com`.
-5. In cPanel Git Version Control, create a separate staging checkout/clone of:
+5. In cPanel Git Version Control, use a separate staging checkout/clone of:
    `https://github.com/gregtysick/gregtysick-website.git`
 6. Set the checked-out branch to:
-   `story-site-prototype`
+   `site-integration`
 7. Pull/update the branch.
-8. Deploy HEAD. The branch-specific `.cpanel.yml` copies only `site/*` into `/home/beaufgfv/staging.gregtysick.com/`.
-9. Verify the staging URL loads on desktop and mobile.
+8. Deploy HEAD. `.cpanel.yml` copies only `site/*` into `/home/beaufgfv/staging.gregtysick.com/`.
+9. Verify the Journey homepage and persistent navigation load on desktop and mobile.
 10. Confirm production `gregtysick.com` remains unchanged.
 
 ## Safety boundary
 - Production branch: `main`
-- Prototype branch: `story-site-prototype`
+- Integrated staging branch: `site-integration`
 - Production document root: `/home/beaufgfv/gregtysick.com/`
 - Staging document root: `/home/beaufgfv/staging.gregtysick.com/`
 
-Do not deploy `story-site-prototype` from the production cPanel repository checkout.
-Do not merge PR #1 or modify production DNS/document roots as part of staging setup.
+Do not deploy `site-integration` from the production cPanel repository checkout.
+Do not merge to `main`, modify production DNS, or change production document roots as part of staging work.
+
+## Current deployment intent
+The staging branch is the active visual-development surface. The Journey root, Experience, Projects, Writing and About routes should be reviewed there before any production decision.
 
 ## Verification report
 Return:
