@@ -258,7 +258,7 @@ blockquote {
   .site-footer { flex-direction: column; }
 }
 
-/* ── Detail anchor sections (site/details/) ── */
+/* ── Detail anchor sections ── */
 .detail-anchor {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
