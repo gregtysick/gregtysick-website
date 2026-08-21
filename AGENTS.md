@@ -5,7 +5,7 @@ This repository is the canonical code repository for Greg Tysick's personal webs
 ## Branch and deployment boundaries
 
 - `main` = current production `gregtysick.com`. Do not modify, merge into, or deploy production without explicit production approval.
-- `site-integration` = active staging/development branch for `staging.gregtysick.com`.
+- `staging` = active staging/development branch for `staging.gregtysick.com`.
 - `site/` is the only public deployable surface.
 - The separate existing `greg.tysick.com` compact profile site is not replaced by this branch.
 
@@ -25,7 +25,7 @@ Do not restart discovery or split the animation and professional pages into comp
 
 ## Current execution priority
 
-Work visual-first on `site-integration`:
+Work visual-first on `staging`:
 
 - approved Practical Engineer Beaver identity;
 - Greg-specific six-chapter scenery;
@@ -35,13 +35,13 @@ Work visual-first on `site-integration`:
 
 ## Cleanup rules
 
-- Before deleting historical/prototype material, prove it is unused and that its replacement is present on `site-integration`.
+- Before deleting historical/prototype material, prove it is unused and that its replacement is present on `staging`.
 - `site/details/`, old Cartographer fox/vehicle/demo assets, and unused source files are cleanup candidates, not automatic deletions.
 - Preserve source/raw graphics outside the deployable surface when practical; keep only optimized public assets in `site/assets/`.
 - Do not remove the production-site recovery path. Confirm current copies of both `gregtysick.com` and `greg.tysick.com` are archived in the Managed Folder before aggressive cleanup.
 
 ## Staging publish
 
-The `site-integration` `.cpanel.yml` deploys `site/*` to `/home/beaufgfv/staging.gregtysick.com/`.
+The `staging` `.cpanel.yml` deploys `site/*` to `/home/beautifulgrowth/staging.gregtysick.com/`.
 
-Before deployment, verify the cPanel checkout is this repository on branch `site-integration`, pull the current remote HEAD, deploy HEAD, smoke-test desktop/mobile, and explicitly confirm `gregtysick.com` production was untouched.
+Before deployment, verify the cPanel checkout is this repository on branch `staging`, pull the current remote HEAD, deploy HEAD, smoke-test desktop/mobile, and explicitly confirm `gregtysick.com` production was untouched.

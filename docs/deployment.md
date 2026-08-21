@@ -10,14 +10,14 @@ Only files under `site/` are deployable.
 
 - Domain: `https://gregtysick.com`
 - Branch: `main`
-- Document root: `/home/beaufgfv/gregtysick.com/`
+- Document root: `/home/beautifulgrowth/gregtysick.com/`
 - Do not merge/deploy production without explicit production approval.
 
 ### Staging
 
 - Domain: `https://staging.gregtysick.com`
-- Branch: `site-integration`
-- Document root: `/home/beaufgfv/staging.gregtysick.com/`
+- Branch: `staging`
+- Document root: `/home/beautifulgrowth/staging.gregtysick.com/`
 - This is the active review/development surface for the integrated Journey + conventional professional site.
 
 ### Separate compact profile
@@ -27,10 +27,10 @@ Only files under `site/` are deployable.
 ## Staging deploy flow
 
 1. In cPanel Git Version Control, use a separate checkout of `gregtysick/gregtysick-website` for staging.
-2. Verify that checkout is on `site-integration`.
+2. Verify that checkout is on `staging`.
 3. Pull/update from the GitHub remote.
 4. Confirm the intended remote HEAD SHA.
-5. Deploy HEAD. The branch `.cpanel.yml` copies `site/*` to `/home/beaufgfv/staging.gregtysick.com/`.
+5. Deploy HEAD. The branch `.cpanel.yml` copies `site/*` to `/home/beautifulgrowth/staging.gregtysick.com/`.
 6. Verify `/` opens into the animated Journey and that the persistent navigation reaches Experience, Projects, Writing, About, LinkedIn, GitHub and Contact.
 7. Smoke-test desktop and phone.
 8. Explicitly confirm production `gregtysick.com` remains unchanged.

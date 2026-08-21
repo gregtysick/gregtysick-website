@@ -1,7 +1,7 @@
 # Staging Setup — gregtysick.com Integrated Site
 
 ## Purpose
-Maintain a safe browser-accessible staging environment for the integrated `site-integration` branch without touching the production `gregtysick.com` document root.
+Maintain a safe browser-accessible staging environment for the integrated `staging` branch without touching the production `gregtysick.com` document root.
 
 ## Staging hostname
 `staging.gregtysick.com`
@@ -12,24 +12,24 @@ Maintain a safe browser-accessible staging environment for the integrated `site-
 1. In Namecheap cPanel, confirm the domain/subdomain `staging.gregtysick.com` exists.
 2. Do **not** share the production document root.
 3. Set the document root exactly to:
-   `/home/beaufgfv/staging.gregtysick.com`
+   `/home/beautifulgrowth/staging.gregtysick.com`
 4. Confirm DNS/AutoSSL resolves HTTPS for `staging.gregtysick.com`.
 5. In cPanel Git Version Control, use a separate staging checkout/clone of:
    `https://github.com/gregtysick/gregtysick-website.git`
 6. Set the checked-out branch to:
-   `site-integration`
+   `staging`
 7. Pull/update the branch.
-8. Deploy HEAD. `.cpanel.yml` copies only `site/*` into `/home/beaufgfv/staging.gregtysick.com/`.
+8. Deploy HEAD. `.cpanel.yml` copies only `site/*` into `/home/beautifulgrowth/staging.gregtysick.com/`.
 9. Verify the Journey homepage and persistent navigation load on desktop and mobile.
 10. Confirm production `gregtysick.com` remains unchanged.
 
 ## Safety boundary
 - Production branch: `main`
-- Integrated staging branch: `site-integration`
-- Production document root: `/home/beaufgfv/gregtysick.com/`
-- Staging document root: `/home/beaufgfv/staging.gregtysick.com/`
+- Integrated staging branch: `staging`
+- Production document root: `/home/beautifulgrowth/gregtysick.com/`
+- Staging document root: `/home/beautifulgrowth/staging.gregtysick.com/`
 
-Do not deploy `site-integration` from the production cPanel repository checkout.
+Do not deploy `staging` from the production cPanel repository checkout.
 Do not merge to `main`, modify production DNS, or change production document roots as part of staging work.
 
 ## Current deployment intent

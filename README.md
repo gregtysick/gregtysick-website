@@ -7,12 +7,12 @@ Canonical repository for Greg Tysick's personal website.
 The project is one integrated website, not separate animated and static sites.
 
 - **Production:** `https://gregtysick.com` — branch `main`; do not modify/deploy without explicit production approval.
-- **Staging/review:** `https://staging.gregtysick.com` — branch `site-integration`.
+- **Staging/review:** `https://staging.gregtysick.com` — branch `staging`.
 - **Compact profile site:** `https://greg.tysick.com` — separate existing site and not replaced by staging work in this branch.
 
 ## Staging site structure
 
-`site-integration` is the active development branch.
+`staging` is the active development branch.
 
 - `/` — animated Journey homepage (`From Ledgers to Agents`)
 - `/experience/` — conventional/static professional experience layer
@@ -41,13 +41,13 @@ Only `site/` is deployed.
 
 ## Staging deployment
 
-The `site-integration` branch `.cpanel.yml` deploys `site/*` to:
+The `staging` branch `.cpanel.yml` deploys `site/*` to:
 
-`/home/beaufgfv/staging.gregtysick.com/`
+`/home/beautifulgrowth/staging.gregtysick.com/`
 
-The cPanel staging checkout must be the Greg-owned repository and checked out to `site-integration` before deploying HEAD.
+The cPanel staging checkout must be the Greg-owned repository and checked out to `staging` before deploying HEAD.
 
-Production `main` and `/home/beaufgfv/gregtysick.com/` are outside the staging deployment boundary.
+Production `main` and `/home/beautifulgrowth/gregtysick.com/` are outside the staging deployment boundary.
 
 See `docs/staging-setup.md` for the staging procedure.
 
@@ -61,4 +61,4 @@ See `docs/staging-setup.md` for the staging procedure.
 
 ## Repository cleanup boundary
 
-Historical prototypes, placeholder Cartographer assets, legacy `/details/` material and unused source files should be reviewed before deletion. Do not remove anything merely because it appears old until its replacement is confirmed in `site-integration` and the prior production sites are safely archived in the Managed Folder.
+Historical prototypes, placeholder Cartographer assets, legacy `/details/` material and unused source files should be reviewed before deletion. Do not remove anything merely because it appears old until its replacement is confirmed in `staging` and the prior production sites are safely archived in the Managed Folder.
