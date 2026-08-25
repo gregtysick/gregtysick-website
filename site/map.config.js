@@ -20,13 +20,13 @@ export const MAP = {
     ],
   },
 
-  // Temporary traveler wiring. The approved Practical Engineer Beaver assets are
-  // the next binary intake; keep this block functional until those files are in site/assets.
+  // Greg's Practical Engineer Beaver — replaces the temporary fox traveler.
+  // Assets: beaver-idle.png (resting/sitting), beaver-walk-a.png + beaver-walk-b.png (2-frame trot cycle)
   mascot: {
     scale: 1.10,
-    sit:   { file: 'fox.png',        h: 1.24, yOff: 0, perch: [-.19, 0] },
-    walkA: { file: 'fox-walk-a.png', h: 0.70 },
-    walkB: { file: 'fox-walk-b.png', h: 0.70 },
+    sit:   { file: 'beaver-idle.png',   h: 1.24, yOff: 0, perch: [-.19, 0] },
+    walkA: { file: 'beaver-walk-a.png', h: 0.70 },
+    walkB: { file: 'beaver-walk-b.png', h: 0.70 },
   },
 
   // Source-demo vehicles are retained only as dormant assets for now. The Greg V1
