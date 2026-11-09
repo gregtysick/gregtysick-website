@@ -5,18 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f3eddf" />
   <title>Greg Tysick | Contact</title>
-  <meta name="description" content="Get in touch with Greg Tysick about business systems, operations and modern workflows." />
+  <meta name="description" content="Connect with Greg Tysick. Save contact details, send an email, or explore his work and professional profiles." />
   <meta name="robots" content="noindex,nofollow" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="stylesheet" href="/styles/site.css" />
+  <style>
+    /* Contact page only: keep the Journey and other pages unchanged. */
+    .contact-main {
+      min-height: 100svh;
+      padding: 7.8rem 1rem 3.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .contact-card {
+      width: min(100%, 510px);
+      background: rgba(255, 254, 250, .96);
+      border: 1px solid rgba(24, 52, 95, .13);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 18px 55px rgba(24, 52, 95, .1);
+    }
+    .contact-top {
+      padding: 2.25rem 1.7rem 1.4rem;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% -5%, #f5e4c5, transparent 66%);
+    }
+    .contact-avatar {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 1.1rem;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: #18345f;
+      border: 3px solid #fffefa;
+      box-shadow: 0 5px 20px rgba(24, 52, 95, .16);
+      color: #fffefa;
+      font: 600 1.2rem/1 Georgia, "Times New Roman", serif;
+      letter-spacing: .035em;
+    }
+    .contact-kicker {
+      margin: 0 0 .7rem;
+      color: #b55b25;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .contact-card h1 {
+      font: 500 clamp(2.3rem, 7vw, 3.1rem)/1.05 Georgia, "Times New Roman", serif;
+      letter-spacing: -.045em;
+      margin: 0;
+      color: #10213a;
+    }
+    .contact-role {
+      margin: .75rem 0 0;
+      font-size: .88rem;
+      font-weight: 650;
+      line-height: 1.5;
+      color: #35455a;
+    }
+    .contact-intro {
+      max-width: 22rem;
+      margin: .7rem auto 0;
+      font-size: .87rem;
+      line-height: 1.55;
+      color: #6b665c;
+    }
+    .contact-content { padding: .1rem 1.6rem 1.7rem; }
+    .contact-save {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      min-height: 54px;
+      border-radius: 13px;
+      background: #18345f;
+      color: #fff;
+      text-decoration: none;
+      font-size: .93rem;
+      font-weight: 750;
+      transition: background .18s ease, transform .18s ease;
+    }
+    .contact-save:hover { background: #254879; transform: translateY(-1px); }
+    .contact-save svg { width: 20px; height: 20px; }
+    .save-hint {
+      margin: .65rem 0 1.2rem;
+      font-size: .72rem;
+      text-align: center;
+      color: #696b6e;
+      line-height: 1.45;
+    }
+    .contact-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+    .contact-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 47px;
+      border: 1px solid rgba(24, 52, 95, .16);
+      background: #fff;
+      border-radius: 12px;
+      color: #18345f;
+      text-decoration: none;
+      font: 700 .84rem/1 Inter, system-ui, sans-serif;
+      cursor: pointer;
+    }
+    .contact-action:hover { background: #f6f5f0; }
+    .contact-action svg { width: 17px; height: 17px; }
+    .share-status { min-height: 0; font-size: .73rem; margin: .5rem 0 0; text-align: center; color: #46505d; }
+    .contact-links { margin: 1.5rem 0 0; padding-top: 1.3rem; border-top: 1px solid rgba(24, 52, 95, .12); }
+    .contact-links h2 {
+      margin: 0 0 .7rem;
+      color: #6b665c;
+      font: 800 .7rem/1.4 Inter, system-ui, sans-serif;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .78rem .75rem;
+      border-radius: 11px;
+      color: #10213a;
+      text-decoration: none;
+      border: 1px solid transparent;
+      min-height: 51px;
+    }
+    .contact-link + .contact-link { border-top-color: rgba(24, 52, 95, .07); border-radius: 0; }
+    .contact-link:hover { background: #f3eddf; border-radius: 11px; }
+    .contact-link strong { display: block; font-weight: 700; font-size: .85rem; }
+    .contact-link small { display: block; margin-top: .1rem; font-size: .73rem; color: #6b665c; }
+    .contact-arrow { font-size: 1.2rem; color: #b55b25; flex: none; }
+    .contact-foot {
+      background: #f6f3ec;
+      border-top: 1px solid rgba(24, 52, 95, .1);
+      text-align: center;
+      padding: 1rem;
+      font-size: .78rem;
+    }
+    .contact-foot a { color: #18345f; font-weight: 700; text-decoration: none; }
+    .contact-foot a:hover { text-decoration: underline; }
+    .contact-card a:focus-visible, .contact-card button:focus-visible { outline: 3px solid #d86827; outline-offset: 3px; }
+    @media (max-width: 560px) {
+      .contact-main { padding-top: 8.9rem; }
+      .contact-top { padding: 1.9rem 1.1rem 1rem; }
+      .contact-content { padding: .1rem 1.05rem 1.4rem; }
+      .contact-card { border-radius: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .contact-save { transition: none; }
+      .contact-save:hover { transform: none; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <header class="site-header">
     <a class="brand" href="/" aria-label="Greg Tysick home">
-      <span class="brand-mark" aria-hidden="true">GT</span>
-      <span>Greg Tysick</span>
+      <span class="brand-mark" aria-hidden="true">GT</span><span>Greg Tysick</span>
     </a>
     <nav class="quick-links" aria-label="Primary">
       <a href="/">Journey</a>
@@ -27,35 +178,61 @@
     </nav>
   </header>
 
-  <main id="main" class="page-main">
-    <section class="page-hero">
-      <p class="eyebrow">Talk</p>
-      <h1>Contact</h1>
-      <p class="page-deck">Business systems, operational improvement and modern workflows — let's talk.</p>
-    </section>
+  <main id="main" class="contact-main">
+    <article class="contact-card" aria-label="Greg Tysick digital contact card">
+      <header class="contact-top">
+        <div class="contact-avatar" aria-hidden="true">GT</div>
+        <p class="contact-kicker">Connect</p>
+        <h1>Greg Tysick</h1>
+        <p class="contact-role">Systems &middot; Operations &middot; Automation</p>
+        <p class="contact-intro">Practical systems, thoughtful technology, and work that makes complexity easier to manage.</p>
+      </header>
+      <div class="contact-content">
+        <a class="contact-save" href="/contact/greg-tysick.vcf" type="text/vcard" download="Greg-Tysick.vcf">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+          Save to Contacts
+        </a>
+        <p class="save-hint">Download my contact card, then choose to add it to your contacts.</p>
 
-    <section class="page-content page-prose" aria-label="Contact Greg Tysick">
-      <p>The fastest way to reach me:</p>
-      <p><a class="button primary" href="mailto:hello@tysick.com">hello@tysick.com</a></p>
+        <div class="contact-actions">
+          <a class="contact-action" href="mailto:hello@tysick.com">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            Email
+          </a>
+          <button class="contact-action" type="button" id="share-contact">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0L7 8m5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+            Share Page
+          </button>
+        </div>
+        <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
 
-      <h2>Professional profiles</h2>
-      <p>
-        <a href="https://www.linkedin.com/in/gregtysick/" target="_blank" rel="noopener">LinkedIn &rarr;</a><br />
-        <a href="https://github.com/gregtysick" target="_blank" rel="noopener">GitHub &rarr;</a>
-      </p>
-    </section>
-
-    <section class="closing" aria-labelledby="closing-title">
-      <p class="eyebrow">Still building</p>
-      <h2 id="closing-title">The tools changed.<br />The work stayed the same.</h2>
-      <p>Turn complexity into something people can actually use.</p>
-      <a class="button primary" href="mailto:hello@tysick.com">Start a conversation</a>
-    </section>
+        <nav class="contact-links" aria-label="Websites and profiles">
+          <h2>Explore my work</h2>
+          <a class="contact-link" href="https://gregtysick.com/"><span><strong>Personal website</strong><small>gregtysick.com</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
+          <a class="contact-link" href="https://beautifulgrowth.co/" target="_blank" rel="noopener"><span><strong>Beautiful Growth</strong><small>beautifulgrowth.co</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
+          <a class="contact-link" href="https://www.linkedin.com/in/gregtysick/" target="_blank" rel="noopener"><span><strong>LinkedIn</strong><small>linkedin.com/in/gregtysick</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
+          <a class="contact-link" href="https://github.com/gregtysick" target="_blank" rel="noopener"><span><strong>GitHub</strong><small>github.com/gregtysick</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
+          <a class="contact-link" href="https://www.youtube.com/@Greg.Tysick" target="_blank" rel="noopener"><span><strong>YouTube</strong><small>youtube.com/@Greg.Tysick</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
+        </nav>
+      </div>
+      <footer class="contact-foot"><a href="/">&larr; Explore the Journey</a></footer>
+    </article>
   </main>
 
-  <footer class="site-footer">
-    <span>&copy; Greg Tysick</span>
-    <nav class="footer-links" aria-label="More information"><a href="/about/">About</a></nav>
-  </footer>
+  <script>
+    document.getElementById('share-contact').addEventListener('click', async function () {
+      const url = 'https://gregtysick.com/contact/';
+      const status = document.getElementById('share-status');
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Greg Tysick', url: url }); status.textContent = ''; }
+        catch (error) { if (error.name !== 'AbortError') status.textContent = 'Use your browser menu to share this page.'; }
+      } else if (navigator.clipboard && window.isSecureContext) {
+        try { await navigator.clipboard.writeText(url); status.textContent = 'Contact page link copied.'; }
+        catch (_) { status.textContent = 'Copy this URL: ' + url; }
+      } else {
+        status.textContent = 'Copy this URL: ' + url;
+      }
+    });
+  </script>
 </body>
 </html>
