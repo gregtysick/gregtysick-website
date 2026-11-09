@@ -555,3 +555,12 @@ blockquote {
   .route-live { transition: none; }
   .chapter-art::before { transform: none; }
 }
+
+/* Two editorial areas are enough for the Writing MVP. */
+.writing-page .card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 920px;
+}
+@media (max-width: 900px) {
+  .writing-page .card-grid { grid-template-columns: 1fr; }
+}
