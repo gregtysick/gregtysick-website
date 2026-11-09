@@ -6,13 +6,13 @@ Canonical repository for Greg Tysick's personal website.
 
 The project is one integrated website, not separate animated and static sites.
 
-- **Production:** `https://gregtysick.com` — branch `main`; do not modify/deploy without explicit production approval.
+- **Production:** `https://gregtysick.com` — branch `main`, integrated Journey and professional pages.
 - **Staging/review:** `https://staging.gregtysick.com` — branch `staging`.
-- **Compact profile site:** `https://greg.tysick.com` — separate existing site and not replaced by staging work in this branch.
+- **Compact profile site:** `https://greg.tysick.com` — separate business-card repository `gregtysick/greg.tysick-website`.
 
-## Staging site structure
+## Site structure
 
-`staging` is the active development branch.
+`main` serves production; `staging` is the review and development branch.
 
 - `/` — animated Journey homepage (`From Ledgers to Agents`)
 - `/experience/` — conventional/static professional experience layer
@@ -21,7 +21,7 @@ The project is one integrated website, not separate animated and static sites.
 - `/about/` — conventional/static about layer
 - LinkedIn — external professional profile
 - GitHub — external project/profile evidence
-- Contact — direct contact action (a dedicated static contact page may be added during cleanup)
+- `/contact/` — dedicated static contact page and direct email action
 
 The persistent navigation is intentionally visible above the Journey so visitors can leave the animation immediately and reach factual professional information.
 
@@ -39,25 +39,13 @@ Only `site/` is deployed.
 - `site/experience/`, `site/projects/`, `site/writing/`, `site/about/` — conventional pages
 - `site/styles/` — shared conventional-page styling
 
-## Staging deployment
+## Deployment
 
-The `staging` branch `.cpanel.yml` deploys `site/*` to:
+`main/.cpanel.yml` targets `/home/beautifulgrowth/gregtysick.com/`; `staging/.cpanel.yml` targets `/home/beautifulgrowth/staging.gregtysick.com/`. Publish only the intended branch to its matching domain. The registered cPanel staging Git checkout was stale on 2026-11-09 despite a success response. Verify the checkout SHA before any Git-based deployment; use a fresh checkout and cPanel File Manager upload when it does not advance. See `docs/deployment.md` and `docs/staging-setup.md`.
 
-`/home/beautifulgrowth/staging.gregtysick.com/`
+## Follow-on work
 
-The cPanel staging checkout must be the Greg-owned repository and checked out to `staging` before deploying HEAD.
-
-Production `main` and `/home/beautifulgrowth/gregtysick.com/` are outside the staging deployment boundary.
-
-See `docs/staging-setup.md` for the staging procedure.
-
-## Current execution priority
-
-1. Keep the complete rough integrated structure working on staging.
-2. Replace remaining placeholder traveler/demo assets with the approved Practical Engineer Beaver assets.
-3. Develop/tune Greg-specific scenery, movement, scale, grounding, pacing and mobile composition.
-4. Preserve the conventional pages and navigation while visual work proceeds.
-5. Refine content after the visual experience is convincing.
+Continue visual polish, content refinement, accessibility checks, and verified staging previews in the `staging` branch before any future production release.
 
 ## Repository cleanup boundary
 

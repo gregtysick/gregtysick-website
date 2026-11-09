@@ -44,4 +44,4 @@ Work visual-first on `staging`:
 
 The `staging` `.cpanel.yml` deploys `site/*` to `/home/beautifulgrowth/staging.gregtysick.com/`.
 
-Before deployment, verify the cPanel checkout is this repository on branch `staging`, pull the current remote HEAD, deploy HEAD, smoke-test desktop/mobile, and explicitly confirm `gregtysick.com` production was untouched.
+Before deployment, verify the cPanel checkout is this repository on branch `staging`, pull the current remote HEAD, and independently confirm the checkout SHA. The cPanel update API reported success while leaving the checkout stale on 2026-11-09. If stale, use a fresh checkout and verified direct upload. Smoke-test desktop/mobile and explicitly confirm `gregtysick.com` production was untouched.
