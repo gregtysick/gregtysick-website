@@ -486,3 +486,72 @@ blockquote {
 @media (max-width: 560px) {
   .quick-links a:nth-child(3) { display: none; }
 }
+
+
+/* MVP release refinements — readable navigation and complete Experience chapters */
+.quick-links a[aria-current="page"] { color: var(--ink-dark); font-weight: 800; }
+.quick-links a:focus-visible, .footer-links a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem 1.35rem;
+}
+.footer-links a { color: var(--ink); text-decoration: none; }
+.footer-links a:hover { color: var(--orange); text-decoration: underline; }
+.site-footer { align-items: center; flex-wrap: wrap; }
+
+.experience-page .chapter {
+  min-height: 70svh;
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+.experience-page .chapter:first-child { border-top: 0; }
+.experience-page .chapter-meta { flex-wrap: wrap; line-height: 1.5; }
+.experience-page .chapter-copy p:not(.chapter-meta) { max-width: 42rem; }
+.experience-page .story-rail ol { align-content: space-around; }
+.experience-page .story-rail a:hover, .experience-page .story-rail a:focus-visible {
+  color: var(--ink-dark);
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  /* Earlier prototypes hid primary navigation links by screen width. Keep all five visible. */
+  .quick-links a:nth-child(2) { display: inline-flex; }
+  .site-header { gap: 1rem; }
+  .quick-links { gap: .85rem; }
+}
+@media (max-width: 768px) {
+  .quick-links a:nth-child(4) { display: inline-flex; }
+}
+@media (max-width: 560px) {
+  .quick-links a:nth-child(3) { display: inline-flex; }
+  .site-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    gap: .5rem;
+  }
+  .quick-links {
+    width: 100%;
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: .9rem;
+    padding: .2rem 0 .35rem;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+  .quick-links a { display: inline-flex; font-size: .76rem; flex: 0 0 auto; }
+  .experience-page .chapter { padding: 3rem 0; }
+  .experience-page .chapter-meta { gap: .45rem .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .route-live { transition: none; }
+  .chapter-art::before { transform: none; }
+}
