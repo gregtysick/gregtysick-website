@@ -13,7 +13,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
   body { background: #f0e8d6; font-family: 'Patrick Hand', cursive; }
-  #world { position: fixed; inset: 0; touch-action: none; }
+  #world { position: fixed; inset: 0; touch-action: none; cursor: grab; }
+  body.dragging #world { cursor: grabbing; }
 
   /* loading page */
   #loader {
@@ -626,6 +627,24 @@ let hinted = false;
 function dismissHint() { if (!hinted) { hinted = true; document.getElementById('hint').classList.remove('show'); } }
 const WHEEL_K = 0.00007;
 addEventListener('wheel', e => { targetP += e.deltaY * WHEEL_K; dismissHint(); }, { passive: true });
+let dragging = false, lastDragX = 0, lastDragY = 0;
+canvas.addEventListener('pointerdown', e => {
+  if (e.pointerType !== 'mouse' || e.button !== 0) return;
+  dragging = true;
+  lastDragX = e.clientX; lastDragY = e.clientY;
+  canvas.setPointerCapture(e.pointerId);
+  document.body.classList.add('dragging');
+  dismissHint();
+});
+canvas.addEventListener('pointermove', e => {
+  if (!dragging || e.pointerType !== 'mouse') return;
+  const dx = lastDragX - e.clientX, dy = lastDragY - e.clientY;
+  targetP += (Math.abs(dx) > Math.abs(dy) ? dx : dy) * 0.00022;
+  lastDragX = e.clientX; lastDragY = e.clientY;
+});
+function endDrag() { dragging = false; document.body.classList.remove('dragging'); }
+canvas.addEventListener('pointerup', endDrag);
+canvas.addEventListener('pointercancel', endDrag);
 let lastTouchX = null, lastTouchY = null, touchVel = 0, lastTouchTime = 0;
 addEventListener('touchstart', e => {
   lastTouchX = e.touches[0].clientX;
