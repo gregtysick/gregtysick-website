@@ -21,12 +21,12 @@ export const MAP = {
   },
 
   // Greg's Practical Engineer Beaver — replaces the temporary fox traveler.
-  // Assets: beaver-idle.png (resting/sitting), beaver-walk-a.png + beaver-walk-b.png (2-frame trot cycle)
+  // Corrected source mapping: Beaver 2 = idle, Beaver 3 = walk A, Beaver 4 = walk B.
   mascot: {
     scale: 1.10,
-    sit:   { file: 'beaver-idle.png',   h: 1.24, yOff: 0, perch: [-.19, 0] },
-    walkA: { file: 'beaver-walk-a.png', h: 0.70 },
-    walkB: { file: 'beaver-walk-b.png', h: 0.70 },
+    sit:   { file: 'beaver-idle.png',   h: 0.85, yOff: 0, perch: [0, 0] },
+    walkA: { file: 'beaver-walk-a.png', h: 0.85, yOff: 0 },
+    walkB: { file: 'beaver-walk-b.png', h: 0.85, yOff: 0 },
   },
 
   // Source-demo vehicles are retained only as dormant assets for now. The Greg V1
@@ -40,6 +40,7 @@ export const MAP = {
   chapters: [
     {
       id: 'ledger',
+      beaver: { file: 'beaver-ledger.png', h: 0.85 },
       wp: 'WP·00', wpX: 15.2,
       note: {
         title: '00 · the ledger — 1990s–2008',
@@ -56,6 +57,7 @@ export const MAP = {
 
     {
       id: 'practice',
+      beaver: { file: 'beaver-practice.png', h: 0.85 },
       wp: 'WP·01', wpX: 31.2,
       note: {
         title: '01 · the practice — 2009–2012',
@@ -72,6 +74,7 @@ export const MAP = {
 
     {
       id: 'network',
+      beaver: { file: 'beaver-network.png', h: 0.85 },
       wp: 'WP·02', wpX: 47.2,
       note: {
         title: '02 · the network — 2012–2017',
@@ -88,6 +91,7 @@ export const MAP = {
 
     {
       id: 'builder',
+      beaver: { file: 'beaver-builder.png', h: 0.85 },
       wp: 'WP·03', wpX: 63.2,
       note: {
         title: '03 · the builder — 2017–2023',
@@ -105,6 +109,7 @@ export const MAP = {
 
     {
       id: 'models',
+      beaver: { file: 'beaver-models.png', h: 0.85 },
       wp: 'WP·04', wpX: 79.2,
       note: {
         title: '04 · the models — 2022–present',
@@ -121,6 +126,7 @@ export const MAP = {
 
     {
       id: 'operating-system',
+      beaver: { file: 'beaver-operating-system.png', h: 0.85 },
       wp: 'WP·05', wpX: 95.4,
       finale: true,
       note: {
