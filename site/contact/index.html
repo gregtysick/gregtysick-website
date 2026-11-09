@@ -221,7 +221,7 @@
 
   <script>
     document.getElementById('share-contact').addEventListener('click', async function () {
-      const url = 'https://gregtysick.com/contact/';
+      const url = new URL('/contact/', window.location.origin).href;
       const status = document.getElementById('share-status');
       if (navigator.share) {
         try { await navigator.share({ title: 'Greg Tysick', url: url }); status.textContent = ''; }
