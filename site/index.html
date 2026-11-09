@@ -124,23 +124,21 @@
 </style>
 </head>
 <body>
+<noscript><style>#loader{display:none!important}#fallback{display:flex!important}</style></noscript>
 
 <!-- Persistent navigation overlay -->
 <nav class="journey-nav" aria-label="Primary">
   <a class="nav-brand" href="/" aria-label="Greg Tysick home">Greg Tysick</a>
-  <div class="nav-links" role="menubar">
-    <a href="/" role="menuitem">Journey</a>
-    <a href="/experience/" role="menuitem">Experience</a>
-    <a href="/projects/" role="menuitem">Projects</a>
-    <a href="/writing/" role="menuitem">Writing</a>
-    <a href="/about/" role="menuitem">About</a>
-    <a href="https://www.linkedin.com/in/gregtysick/" role="menuitem" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/gregtysick" role="menuitem" target="_blank" rel="noopener">GitHub</a>
-    <a href="/contact/" role="menuitem">Contact</a>
+  <div class="nav-links">
+    <a href="/" aria-current="page">Journey</a>
+    <a href="/experience/">Experience</a>
+    <a href="/projects/">Projects</a>
+    <a href="/writing/">Writing</a>
+    <a href="/contact/">Contact</a>
   </div>
 </nav>
 
-<canvas id="world"></canvas>
+<canvas id="world" role="img" aria-label="Illustrated journey from accounting and operations through systems and practical AI."></canvas>
 <div id="loader"><div class="t">unrolling the map…</div><div class="bar"><i id="loadbar"></i></div></div>
 <div id="badge"><div class="k">FIELD MAP</div><div class="n">G. Tysick</div></div>
 <div id="odo">◈ <b id="km">0</b> km charted</div>
