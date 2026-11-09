@@ -6,7 +6,7 @@ export const MAP = {
   opening: {
     headline: ['From Ledgers', 'to Agents'],
     tagline:  'Greg Tysick · a practical systems journey',
-    arc:      'Accounting and operations  →  systems builder  →  practical AI',
+    arc:      'Accounting and operations  →  systems builder  →  modern workflows',
     hero:     { image: 'opening-field-map.svg', caption: 'fig. 0 — the route' },
     place: {
       headline: { x: 5.2, y: 5.0, h: 2.6, tilt: -.02, font: '700 96px "Caveat"', ink: '#3b2f21' },
@@ -108,9 +108,9 @@ export const MAP = {
       wp: 'WP·04', wpX: 79.2,
       note: {
         title: '04 · the models — 2022–present',
-        lines: ['Trading systems, analytics, Python,', 'dashboards, risk frameworks, and',
-                'feedback loops pushed the same', 'operating instinct into explicit',
-                'models and automation.'],
+        lines: ['Systems, dashboards, KPIs,', 'measurement, and programmatic',
+                'decision-making made the work', 'more observable, testable,',
+                'and easier to improve.'],
         x: 84.8, y: 6.3, h: 2.3, tilt: -.02,
       },
       aphorism: { lines: ['"Measure the signal. Define the rule.', ' Observe. Improve."'], ink: '#a9792f',
@@ -124,14 +124,15 @@ export const MAP = {
       wp: 'WP·05', wpX: 95.4,
       finale: true,
       note: {
-        title: '05 · the operating system — current',
-        lines: ['Practical AI deployment, workflow', 'architecture, agents, structured context,',
-                'SignalDesk, governance, handoffs,', 'approvals, and forward-deployed',
-                'operations work.'],
+        title: '05 · modern workflows — current',
+        lines: ['Helping businesses adopt AI-native', 'ways of working: modern workflows,',
+                'agents, context, approvals, and',
+                'forward-deployed operations',
+                'built around real business needs.'],
         x: 96.8, y: 5.9, h: 2.35, tilt: -.03,
       },
-      aphorism: { lines: ['"He didn\'t leave operations to chase AI.', ' He brought operational judgment',
-                          ' into deploying AI inside real businesses."'], ink: '#cf7a35',
+      aphorism: { lines: ['"The tools keep changing.', ' The goal stays the same:',
+                          ' make complex work useful."'], ink: '#cf7a35',
                   x: 107.3, y: 6.6, h: 1.45, tilt: .02, font: '600 62px "Caveat"' },
       art: [ { file: 'terrain-operating-system.svg', x: 103.0, y: 2.55, h: 6.1, wallPin: true, sway: 0 } ],
       extraWriting: [
