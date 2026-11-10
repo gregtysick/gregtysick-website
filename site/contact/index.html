@@ -1,269 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f3eddf" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F7F8FA">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Connect with Greg Tysick and save his contact details.">
   <title>Greg Tysick | Contact</title>
-  <meta name="description" content="Connect with Greg Tysick. Save contact details, send an email, or explore his work and professional profiles." />
-  <meta name="robots" content="noindex,nofollow" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <!-- Standalone business card: no dependency on the Journey site's styles. -->
+  <link rel="icon" type="image/png" href="/favicon.png">
   <style>
-    :root { color-scheme: light; }
+    :root { color-scheme: light; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #15263E; background: #F7F8FA; }
     *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      color: #1b293b;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.8), transparent 58%), #f3eddf;
-    }
+    body { margin: 0; }
     a { color: inherit; }
-    .skip-link {
-      position: fixed; z-index: 10; left: 1rem; top: -5rem;
-      padding: .7rem 1rem; background: #10213a; color: #fff;
-      border-radius: 8px;
-    }
-    .skip-link:focus { top: .75rem; }
-    /* Contact page only: keep the Journey and other pages unchanged. */
-    .contact-main {
-      min-height: 100svh;
-      padding: 2.4rem 1rem 3.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .contact-card {
-      width: min(100%, 510px);
-      background: rgba(255, 254, 250, .96);
-      border: 1px solid rgba(24, 52, 95, .13);
-      border-radius: 26px;
-      overflow: hidden;
-      box-shadow: 0 18px 55px rgba(24, 52, 95, .1);
-    }
-    .contact-top {
-      padding: 2.25rem 1.7rem 1.4rem;
-      text-align: center;
-      background: radial-gradient(ellipse at 50% -5%, #f5e4c5, transparent 66%);
-    }
-    .contact-avatar {
-      width: 74px;
-      height: 74px;
-      margin: 0 auto 1.1rem;
-      display: grid;
-      place-items: center;
-      border-radius: 22px;
-      position: relative;
-      overflow: hidden;
-      background: #18345f;
-      border: 3px solid #fffefa;
-      box-shadow: 0 5px 20px rgba(24, 52, 95, .16);
-      color: #fffefa;
-      font: 600 1.2rem/1 Georgia, "Times New Roman", serif;
-      letter-spacing: .035em;
-    }
-    .contact-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 24%;
-      display: block;
-      border-radius: inherit;
-    }
-    .contact-kicker {
-      margin: 0 0 .7rem;
-      color: #b55b25;
-      font-size: .7rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .contact-card h1 {
-      font: 500 clamp(2.3rem, 7vw, 3.1rem)/1.05 Georgia, "Times New Roman", serif;
-      letter-spacing: -.045em;
-      margin: 0;
-      color: #10213a;
-    }
-    .contact-role {
-      margin: .75rem 0 0;
-      font-size: .88rem;
-      font-weight: 650;
-      line-height: 1.5;
-      color: #35455a;
-    }
-    .contact-intro {
-      max-width: 22rem;
-      margin: .7rem auto 0;
-      font-size: .87rem;
-      line-height: 1.55;
-      color: #6b665c;
-    }
-    .contact-content { padding: .1rem 1.6rem 1.7rem; }
-    .contact-save {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .7rem;
-      min-height: 54px;
-      border-radius: 13px;
-      background: #18345f;
-      color: #fff;
-      text-decoration: none;
-      font-size: .93rem;
-      font-weight: 750;
-      transition: background .18s ease, transform .18s ease;
-    }
-    .contact-save:hover { background: #254879; transform: translateY(-1px); }
-    .contact-save svg { width: 20px; height: 20px; }
-    .save-hint {
-      margin: .65rem 0 1.2rem;
-      font-size: .72rem;
-      text-align: center;
-      color: #696b6e;
-      line-height: 1.45;
-    }
-    .contact-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
-    .contact-action {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;
-      min-height: 47px;
-      border: 1px solid rgba(24, 52, 95, .16);
-      background: #fff;
-      border-radius: 12px;
-      color: #18345f;
-      text-decoration: none;
-      font: 700 .84rem/1 Inter, system-ui, sans-serif;
-      cursor: pointer;
-    }
-    .contact-action:hover { background: #f6f5f0; }
-    .contact-action svg { width: 17px; height: 17px; }
-    .contact-action.whatsapp-link { grid-column: 1 / -1; justify-content: space-between; padding: .65rem .9rem; text-align: left; background: #f6f5f0; }
-    .whatsapp-name { display: flex; gap: .6rem; align-items: center; }
-    .whatsapp-caption { display: block; font-size: .71rem; font-weight: 500; color: #6b665c; padding-top: .2rem; }
-    .whatsapp-pill { font-size: .64rem; padding: .35rem .5rem; border-radius: 999px; background: #ebe3d5; color: #514d47; white-space: nowrap; font-weight: 750; }
-    .share-status { min-height: 0; font-size: .73rem; margin: .5rem 0 0; text-align: center; color: #46505d; }
-    .contact-links { margin: 1.5rem 0 0; padding-top: 1.3rem; border-top: 1px solid rgba(24, 52, 95, .12); }
-    .contact-links h2 {
-      margin: 0 0 .7rem;
-      color: #6b665c;
-      font: 800 .7rem/1.4 Inter, system-ui, sans-serif;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: .78rem .75rem;
-      border-radius: 11px;
-      color: #10213a;
-      text-decoration: none;
-      border: 1px solid transparent;
-      min-height: 51px;
-    }
-    .contact-link + .contact-link { border-top-color: rgba(24, 52, 95, .07); border-radius: 0; }
-    .contact-link:hover { background: #f3eddf; border-radius: 11px; }
-    .contact-link strong { display: block; font-weight: 700; font-size: .85rem; }
-    .contact-link small { display: block; margin-top: .1rem; font-size: .73rem; color: #6b665c; }
-    .contact-arrow { font-size: 1.2rem; color: #b55b25; flex: none; }
-    .contact-foot {
-      background: #f6f3ec;
-      border-top: 1px solid rgba(24, 52, 95, .1);
-      text-align: center;
-      padding: 1rem;
-      font-size: .78rem;
-    }
-    .contact-foot a { color: #18345f; font-weight: 700; text-decoration: none; }
-    .contact-foot a:hover { text-decoration: underline; }
-    .contact-card a:focus-visible, .contact-card button:focus-visible { outline: 3px solid #d86827; outline-offset: 3px; }
-    @media (max-width: 560px) {
-      .contact-main { padding-top: 1.3rem; }
-      .contact-top { padding: 1.9rem 1.1rem 1rem; }
-      .contact-content { padding: .1rem 1.05rem 1.4rem; }
-      .contact-card { border-radius: 20px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .contact-save { transition: none; }
-      .contact-save:hover { transform: none; }
-    }
+    .skip { position: fixed; top: -5rem; left: 1rem; z-index: 2; padding: .75rem; color: white; background: #18345F; border-radius: 8px; }
+    .skip:focus { top: 1rem; }
+    main { min-height: 100svh; padding: 36px 16px; display: flex; justify-content: center; align-items: flex-start; }
+    .card { width: min(100%, 474px); padding: 32px; background: #fff; border: 1px solid #E6E9ED; border-radius: 20px; box-shadow: 0 4px 18px #15263e0a; }
+    .identity { text-align: center; }
+    .avatar { width: 96px; height: 96px; margin: 0 auto 18px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: #18345F; color: white; font-size: 25px; font-weight: 700; position: relative; }
+    .avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+    h1 { margin: 0; font-size: 29px; line-height: 1.15; letter-spacing: -.035em; }
+    .role { margin: 9px 0 0; font-size: 14px; font-weight: 650; }
+    .intro { margin: 12px auto 24px; max-width: 320px; color: #657183; font-size: 14px; line-height: 1.5; }
+    .primary, .secondary { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 10px; font: inherit; font-size: 14px; font-weight: 650; text-decoration: none; cursor: pointer; }
+    .primary { min-height: 52px; color: #fff; background: #18345F; border: 1px solid #18345F; }
+    .primary:hover { background: #243f69; }
+    .hint { margin: 9px 0 18px; text-align: center; color: #657183; font-size: 12px; line-height: 1.45; }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .secondary { border: 1px solid #D5DBE3; background: #fff; color: #18345F; }
+    .secondary:hover, .online a:hover, summary:hover { background: #F4F6F9; }
+    .utilities { display: flex; justify-content: center; gap: 12px; margin-top: 10px; }
+    .utility { border: 0; background: transparent; color: #18345F; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; min-height: 44px; padding: 0 8px; }
+    .status { margin: 0; min-height: 0; color: #445770; font-size: 13px; line-height: 1.5; text-align: center; overflow-wrap: anywhere; }
+    .online { margin-top: 18px; border-top: 1px solid #E6E9ED; padding-top: 20px; }
+    h2 { margin: 0 0 8px; font-size: 14px; line-height: 1.4; }
+    .online a { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 10px; border-bottom: 1px solid #E6E9ED; text-decoration: none; border-radius: 5px; }
+    .online strong, .online small { display: block; }
+    .online strong { font-size: 14px; font-weight: 650; }
+    .online small { color: #657183; margin-top: 2px; font-size: 12px; overflow-wrap: anywhere; }
+    .arrow { font-size: 17px; color: #657183; }
+    details { margin-top: 16px; color: #18345F; font-size: 13px; }
+    summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 6px; font-weight: 600; }
+    summary::before { content: '+'; font-size: 20px; font-weight: 400; }
+    details[open] summary::before { content: '−'; }
+    .qr { text-align: center; padding: 10px 0 4px; color: #657183; }
+    .qr img { display: block; width: 176px; max-width: 100%; height: auto; margin: auto; }
+    .qr p { font-size: 12px; overflow-wrap: anywhere; }
+    :focus-visible { outline: 3px solid #3769A7; outline-offset: 3px; }
+    @media (max-width: 550px) { :root { background: #fff; } main { padding: 0; } .card { width: 100%; max-width: none; min-height: 100svh; border: 0; border-radius: 0; box-shadow: none; padding: max(28px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left)); } }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <main id="main" class="contact-main">
-    <article class="contact-card" aria-label="Greg Tysick digital contact card">
-      <header class="contact-top">
-        <!-- Final image source: Dropbox /Obsidian/ExecFunc/Greg Tysick/Reputation/Profile Pics/Current Profesisonal Profile/Stylin.png.
-             Copy/optimize this source to site/assets/greg-contact-profile.png before deploying the new photo. -->
-        <div class="contact-avatar">
-          <span aria-hidden="true">GT</span>
-          <img class="contact-photo" src="/assets/greg-contact-profile.png" alt="Greg Tysick profile photo" width="74" height="74" onerror="this.style.display='none'" />
-        </div>
-        <p class="contact-kicker">Connect</p>
+  <a class="skip" href="#main">Skip to content</a>
+  <main id="main">
+    <article class="card" aria-label="Greg Tysick digital contact card">
+      <header class="identity">
+        <div class="avatar"><span aria-hidden="true">GT</span><img src="/assets/greg-contact-profile.png" alt="Greg Tysick" width="96" height="96" onerror="this.hidden=true"></div>
         <h1>Greg Tysick</h1>
-        <p class="contact-role">Systems &middot; Operations &middot; Automation</p>
-        <p class="contact-intro">Practical systems, thoughtful technology, and work that makes complexity easier to manage.</p>
+        <p class="role">Systems · Operations · Automation</p>
+        <p class="intro">Practical technology and systems that make complex work easier.</p>
       </header>
-      <div class="contact-content">
-        <a class="contact-save" href="/contact/greg-tysick.vcf" type="text/vcard" download="Greg-Tysick.vcf">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
-          Save to Contacts
-        </a>
-        <p class="save-hint">Download my contact card, then choose to add it to your contacts.</p>
-
-        <div class="contact-actions">
-          <a class="contact-action" href="mailto:hello@tysick.com">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
-            Email
-          </a>
-          <button class="contact-action" type="button" id="share-contact">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0L7 8m5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
-            Share Page
-          </button>
-          <!-- Username messaging rolls out gradually. This direct link does not contain a phone number. -->
-          <a class="contact-action whatsapp-link" id="whatsapp-contact" href="https://wa.me/GregTysick" target="_blank" rel="noopener noreferrer">
-            <span class="whatsapp-name">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8.5 8.5 0 0 1-12.5 7.5L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 10c.8 2.2 2 3.7 5 4.5l1.5-.8"/></svg>
-              <span>WhatsApp<span class="whatsapp-caption">@GregTysick &middot; Open chat</span></span>
-            </span>
-            <span class="whatsapp-pill">Chat</span>
-          </a>
-        </div>
-        <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
-
-        <nav class="contact-links" aria-label="Websites and profiles">
-          <h2>Explore my work</h2>
-          <a class="contact-link" href="https://gregtysick.com/" target="_blank" rel="noopener noreferrer"><span><strong>Personal website</strong><small>gregtysick.com</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
-          <a class="contact-link" href="https://beautifulgrowth.co/" target="_blank" rel="noopener noreferrer"><span><strong>Beautiful Growth</strong><small>beautifulgrowth.co</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
-          <a class="contact-link" href="https://www.linkedin.com/in/gregtysick/" target="_blank" rel="noopener noreferrer"><span><strong>LinkedIn</strong><small>linkedin.com/in/gregtysick</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
-          <a class="contact-link" href="https://github.com/gregtysick" target="_blank" rel="noopener noreferrer"><span><strong>GitHub</strong><small>github.com/gregtysick</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
-          <a class="contact-link" href="https://www.youtube.com/@Greg.Tysick" target="_blank" rel="noopener noreferrer"><span><strong>YouTube</strong><small>youtube.com/@Greg.Tysick</small></span><span class="contact-arrow" aria-hidden="true">&rsaquo;</span></a>
-        </nav>
+      <a class="primary" href="/contact/greg-tysick.vcf" type="text/vcard">Save to Contacts</a>
+      <p class="hint">Your device may ask you to confirm adding the contact.</p>
+      <div class="actions">
+        <a class="secondary" href="mailto:hello@tysick.com">Email</a>
+        <a class="secondary" href="https://wa.me/GregTysick" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
       </div>
-
+      <div class="utilities"><button class="utility" id="share" type="button">Share this card</button><button class="utility" id="copy-email" type="button">Copy email</button></div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <nav class="online" aria-label="Find me online">
+        <h2>Find me online</h2>
+        <a href="https://gregtysick.com/" target="_blank" rel="noopener noreferrer"><span><strong>Personal Website</strong><small>gregtysick.com</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://beautifulgrowth.co/" target="_blank" rel="noopener noreferrer"><span><strong>Beautiful Growth</strong><small>beautifulgrowth.co</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/gregtysick/" target="_blank" rel="noopener noreferrer"><span><strong>LinkedIn</strong><small>linkedin.com/in/gregtysick</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://github.com/gregtysick" target="_blank" rel="noopener noreferrer"><span><strong>GitHub</strong><small>github.com/gregtysick</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+        <a href="https://www.youtube.com/@Greg.Tysick" target="_blank" rel="noopener noreferrer"><span><strong>YouTube</strong><small>youtube.com/@Greg.Tysick</small></span><span class="arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <details><summary>On a computer? Open this card on your phone</summary><div class="qr"><img id="qr" src="/contact/qr-production.svg" width="176" height="176" alt="QR code for this contact card"><p id="qr-url">https://gregtysick.com/contact/</p></div></details>
     </article>
   </main>
-
   <script>
-    document.getElementById('share-contact').addEventListener('click', async function () {
-      const url = new URL('/contact/', window.location.origin).href;
-      const status = document.getElementById('share-status');
+    const status = document.getElementById('status');
+    const cardUrl = new URL('/contact/', location.origin).href;
+    if (location.hostname === 'staging.gregtysick.com') {
+      document.getElementById('qr').src = '/contact/qr-staging.svg';
+      document.getElementById('qr-url').textContent = cardUrl;
+    }
+    async function copyText(text, success) {
+      try { if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable'); await navigator.clipboard.writeText(text); status.textContent = success; }
+      catch (_) { status.textContent = 'Select and copy: ' + text; }
+    }
+    document.getElementById('copy-email').addEventListener('click', () => copyText('hello@tysick.com', 'Email address copied.'));
+    document.getElementById('share').addEventListener('click', async () => {
       if (navigator.share) {
-        try { await navigator.share({ title: 'Greg Tysick', url: url }); status.textContent = ''; }
-        catch (error) { if (error.name !== 'AbortError') status.textContent = 'Use your browser menu to share this page.'; }
-      } else if (navigator.clipboard && window.isSecureContext) {
-        try { await navigator.clipboard.writeText(url); status.textContent = 'Contact page link copied.'; }
-        catch (_) { status.textContent = 'Copy this URL: ' + url; }
-      } else {
-        status.textContent = 'Copy this URL: ' + url;
+        try { await navigator.share({title: 'Greg Tysick', url: cardUrl}); status.textContent = ''; return; }
+        catch (error) { if (error.name === 'AbortError') return; }
       }
+      await copyText(cardUrl, 'Card link copied.');
     });
   </script>
 </body>
