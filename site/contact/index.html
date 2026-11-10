@@ -115,6 +115,10 @@
     }
     .contact-action:hover { background: #f6f5f0; }
     .contact-action svg { width: 17px; height: 17px; }
+    .contact-action.whatsapp-pending { grid-column: 1 / -1; justify-content: space-between; padding: .65rem .9rem; text-align: left; background: #f6f5f0; }
+    .whatsapp-name { display: flex; gap: .6rem; align-items: center; }
+    .whatsapp-caption { display: block; font-size: .71rem; font-weight: 500; color: #6b665c; padding-top: .2rem; }
+    .whatsapp-pill { font-size: .64rem; padding: .35rem .5rem; border-radius: 999px; background: #ebe3d5; color: #514d47; white-space: nowrap; font-weight: 750; }
     .share-status { min-height: 0; font-size: .73rem; margin: .5rem 0 0; text-align: center; color: #46505d; }
     .contact-links { margin: 1.5rem 0 0; padding-top: 1.3rem; border-top: 1px solid rgba(24, 52, 95, .12); }
     .contact-links h2 {
@@ -203,7 +207,17 @@
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0L7 8m5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
             Share Page
           </button>
+          <!-- WhatsApp officially documents https://wa.me/GregTysick for ACTIVE usernames.
+               This username is only reserved, so do not turn this into a messaging link yet. -->
+          <button class="contact-action whatsapp-pending" id="whatsapp-contact" type="button" data-username="GregTysick" data-future-url="https://wa.me/GregTysick" aria-describedby="whatsapp-state">
+            <span class="whatsapp-name">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8.5 8.5 0 0 1-12.5 7.5L3 20l1.2-4.2A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 10c.8 2.2 2 3.7 5 4.5l1.5-.8"/></svg>
+              <span>WhatsApp<span class="whatsapp-caption">@GregTysick &middot; copy username</span></span>
+            </span>
+            <span class="whatsapp-pill">Coming soon</span>
+          </button>
         </div>
+        <p class="save-hint" id="whatsapp-state">Username reserved; messaging will be available when WhatsApp activates it.</p>
         <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
 
         <nav class="contact-links" aria-label="Websites and profiles">
@@ -220,6 +234,16 @@
   </main>
 
   <script>
+    document.getElementById('whatsapp-contact').addEventListener('click', async function () {
+      const message = document.getElementById('share-status');
+      try {
+        if (!navigator.clipboard || !window.isSecureContext) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText('@GregTysick');
+        message.textContent = 'WhatsApp username copied. Messaging by username is not active yet.';
+      } catch (_) {
+        message.textContent = 'WhatsApp username: @GregTysick. Messaging by username is not active yet.';
+      }
+    });
     document.getElementById('share-contact').addEventListener('click', async function () {
       const url = new URL('/contact/', window.location.origin).href;
       const status = document.getElementById('share-status');
