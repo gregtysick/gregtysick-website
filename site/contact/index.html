@@ -94,8 +94,13 @@
       catch (_) { status.textContent = 'Select and copy: ' + text; }
     }
     document.getElementById('copy-email').addEventListener('click', () => copyText('hello@tysick.com', 'Email address copied.'));
-    document.getElementById('share').addEventListener('click', async () => {
-      if (navigator.share) {
+    const shareButton = document.getElementById('share');
+    const phoneOrTablet = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const useNativeShare = phoneOrTablet && typeof navigator.share === 'function';
+    if (!useNativeShare) shareButton.textContent = 'Copy card link';
+    shareButton.addEventListener('click', async () => {
+      if (useNativeShare) {
         try { await navigator.share({title: 'Greg Tysick', url: cardUrl}); status.textContent = ''; return; }
         catch (error) { if (error.name === 'AbortError') return; }
       }
